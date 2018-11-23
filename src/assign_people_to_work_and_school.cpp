@@ -180,7 +180,11 @@ vector<HouseType*> import_households(string filename_in, string filename_out) {
                 hh_ctr++;
             }
         }
+    } else {
+        cerr << "Error reading in preliminary locations (households only) file: " << filename_in << endl;
+        exit(-3);
     }
+
     fh_in.close();
     return hh_loc;
 }
@@ -246,7 +250,7 @@ vector<LocationType*> import_workplaces_and_schools(const string filename, const
             }
         }
     } else {
-        cerr << "Error reading in locations file: " << filename << endl;
+        cerr << "Error reading in workplaces and schools file: " << filename << endl;
         exit(-3);
     }
 
