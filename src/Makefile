@@ -15,6 +15,9 @@ impute_sch_dat: google_result_filter augment_ntl loc_imputation.R
 final_sch_coords: impute_sch_dat merge_google_impute.R
 	Rscript merge_google_impute.R
 	
+workplace_coords: noising_workplace_coords.R ../raw_data/denue_workplace/denue_inegi_31_.csv
+	Rscript noising_workplace_coords.R
+	
 assign_people: assign_people_to_work_and_school.cpp
 	g++ -O2 --std=c++17 assign_people_to_work_and_school.cpp -o assign_people
 
